@@ -92,16 +92,23 @@ function Home({ searchBar }) {
 
   return (
     <>
-    <h1 className="text-3xl font-bold text-gray-800 mb-5 text-center"></h1>
+    
     <div className="flex justify-center w-full">              
       <List />
 
-      <div className='flex flex-row gap-3'>
-        <HomeProduct />
-        <HomeProduct />
-        <HomeProduct />
-        <HomeProduct />
-        <HomeProduct />
+      <div className=' bg-white w-full items-center justify-center rounded-sm'>
+        <div className='pl-4 pt-3 pb-6 text-lg font-semibold'>
+          <h1>Inspirado no último visto</h1>
+          
+        </div>
+        <div className='flex flex-row gap-5 p-3'>
+          <HomeProduct />
+          <HomeProduct />
+          <HomeProduct />
+          <HomeProduct />
+          <HomeProduct />
+          <HomeProduct />
+        </div>
       </div>
 
     </div>

@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
+import mlLogo from '../assets/img/mlLogo.png'
 
 const Navbar = ({ searchBar, setSearchBar }) => {
 
   return (
-    <nav className="bg-yellow-300/85 text-white">
+    <nav className="bg-yellow-300 text-white">
       <div className=" flex flex-col gap-1">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="text-s font-bold">
+        <div className="container mx-auto flex justify-between items-center p-2">
+          <div className="">
             <Link to="/" className=" transition">
-              Lista
+              <img src={mlLogo} className="h-10"/>
             </Link>
           </div>
 
