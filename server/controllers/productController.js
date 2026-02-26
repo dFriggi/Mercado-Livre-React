@@ -15,10 +15,10 @@ const validateProducts = (data) => {
 
 exports.getAllProducts = async(req, res) => {
     try {
-        const products = (await Product.find()).sort({category: 1})
+        const products = await Product.find().sort({ category: 1 })
         res.json(products)
     } catch(err) {
-        res.status(500).json({ message: "Erro ao buscar produtos." })
+        res.status(500).json({ message: "Erro ao buscar produtos. BACKEND" })
     }
 }
 
@@ -33,7 +33,7 @@ exports.createProduct = async(req, res) => {
         const product = new Product({
             name: req.body.name,
             price: req.body.price,
-            category: req.body.price,
+            category: req.body.category,
             quantity: req.body.quantity,
             description: req.body.description,
             imageUrl: req.body.imageUrl
@@ -54,7 +54,7 @@ exports.updateProduct = async(req, res) => {
         const product = await Product.findByIdAndUpdate(req.params.id, req.body, { new: "true" })
         if(!product) return res.status(400).json({ message: "Produto não encontrado." })
 
-        res.status(200)
+        res.status(200).json(product)
     } catch(err) {
         res.status(500).json({ message: err })
     }
@@ -62,7 +62,7 @@ exports.updateProduct = async(req, res) => {
 
 exports.deleteProduct = async(req, res) => {
     try {
-        const product = await User.findByIdAndDelete(req.params.id)
+        const product = await Product.findByIdAndDelete(req.params.id)
         if(!product) return res.status(404).json({ message: "Usuário não encontrado" })
 
         res.status(200)

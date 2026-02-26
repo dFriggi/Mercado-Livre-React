@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import mlLogo from '../assets/img/mlLogo.png'
+import shopCart from '../assets/img/shopCart.svg'
 
 const Navbar = ({ searchBar, setSearchBar }) => {
 
@@ -19,7 +20,7 @@ const Navbar = ({ searchBar, setSearchBar }) => {
               value={searchBar}
               onChange={(e) => setSearchBar(e.target.value)}
               placeholder='Pesquise seu produto...'
-              className='text-s text-gray-700 pl-2 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 rounded-full '
+              className='text-s min-w-max text-gray-700 pl-2 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 rounded-md '
             >
             </input>
           </div>    
@@ -54,8 +55,8 @@ const Navbar = ({ searchBar, setSearchBar }) => {
               </Link>
             </li>
             <li>
-              <Link href="#servicos" className="">
-                Logout
+              <Link to="/shopcart" className="">
+                <img src={shopCart} className="h-7"/>
               </Link>
             </li>
           </ul>
