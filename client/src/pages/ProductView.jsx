@@ -20,11 +20,11 @@ const ProductView = () => {
 
     const { handleSubmit, control } = useForm()
 
-    const { setCart } = useContext(CartContext) 
+    const { addCart } = useContext(CartContext) 
 
     const handleCartAdd = (data) => {
-        const productQtd = parseInt(data.productCategory)
-        setCart(lastProducts => [[productData, productQtd], ...lastProducts])
+        const productQtd = parseInt(data.productQuantity)
+        addCart(productData, productQtd)
         setProductAdded(true)
     }
 
@@ -80,7 +80,7 @@ const ProductView = () => {
                             <span>Quantidade:</span>
                             <div className="text-lg font-semibold flex-1"> 
                                 <Controller
-                                    name='productCategory'
+                                    name='productQuantity'
                                     control={control}
                                     rules={{ required: 'Categoria é obrigatória' }}
                                     render={({ field }) => (

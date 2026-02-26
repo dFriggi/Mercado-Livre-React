@@ -24,6 +24,10 @@ function App() {
     )
   }
 
+  const addCart = (productData, productQtd) => {
+    setCart(lastProducts => [[productData, productQtd], ...lastProducts])
+  }
+
   const buyCart = async() => {
     try{
         const buyPromises = cart.map((prod) => {
@@ -64,7 +68,7 @@ function App() {
 
   return (
     <>
-      <CartContext.Provider value={{ cart, setCart, updateQuantity, deleteProductCart, buyCart }}>
+      <CartContext.Provider value={{ cart, setCart, updateQuantity, deleteProductCart, buyCart, addCart }}>
         <div className="relative min-h-screen min-w-screen bg-gray-100 font-sans overflow-hidden">
           <div className="min-h-screen min-w-screen bg-gray-200 font-sans">
 
